@@ -1,0 +1,99 @@
+/** {
+  outline: 1px solid red !important;
+}*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background: black;
+}
+
+input {
+  background: gray;
+  font-size: 18px;
+}
+
+form {
+  display: inline-block;
+}
+
+.centered {
+  text-align: center;
+}
+
+#pizzaSize {
+  font-weight: 800;
+}
+
+.mover {
+  position: fixed;
+  height: 100px;  /* height and width are moved from JS */
+  width: 73.333px;
+  z-index: -1;
+  -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+  backface-visibility: hidden; /* added to improve rendering */
+  will-change: transform; /* added for browser optimization */
+}
+
+.randomPizzaContainer {
+  float: left;
+  display: flex;
+  height: 325px; /* height moved from JS */
+  will-change: width; /* added for browser optimization */
+}
+
+.randomPizzaContainer:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+/* classes that control resizing of the columns with pizza images based on slider selection */
+.small-size .randomPizzaContainer {
+  width: 25%;
+}
+
+.medium-size .randomPizzaContainer {
+  width: 33.3%;
+}
+
+.large-size .randomPizzaContainer {
+  width: 50%;
+}
+
+/* media query for small screen size to make sure that pizza images are still displaed at small pizza size */
+@media (min-width: 600px) and (max-width: 767px) {
+  .small-size .randomPizzaContainer {
+    width: 33.3%;
+  }
+
+  .medium-size .randomPizzaContainer {
+    width: 50%;
+  }
+
+  .large-size .randomPizzaContainer {
+     width: 100%;
+  }
+}
+/* media query for extra-small screen size to make sure that pizza images are still displaed at small pizza size */
+@media (max-width: 599px) {
+  .small-size .randomPizzaContainer,
+  .small-size .randomPizzaContainer img {
+    width: 50%;
+  }
+
+  .medium-size .randomPizzaContainer {
+    width: 50%;
+  }
+
+  .large-size .randomPizzaContainer {
+     width: 100%;
+  }
+}
+
+ .container {
+  background-color: rgba(240, 60, 60, 0.8);
+}
